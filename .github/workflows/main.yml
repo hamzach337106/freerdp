@@ -1,0 +1,13 @@
+name: Windows-RDP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Start RDP
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          irm https://raw.githubusercontent.com/kanjitalk755/windows-rdp/main/windows-2022.ps1 | iex
