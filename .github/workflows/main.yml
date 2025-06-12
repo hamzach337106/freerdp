@@ -1,13 +1,14 @@
-name: Windows-RDP
+name: FreeRDP-Windows
 
-on:
+on: 
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
-      - name: Start RDP
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force
-          irm https://raw.githubusercontent.com/kanjitalk755/windows-rdp/main/windows-2022.ps1 | iex
+    - name: Download and Run RDP Script
+      shell: powershell
+      run: |
+        iwr -useb https://raw.githubusercontent.com/lshpanther/FreeRDP/main/RDP.ps1 | iex
